@@ -28,21 +28,37 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 **Regression** (pIC50)
 
-| endpoint | MAE | RMSE | R² | Spearman ρ |
-|---|---|---|---|---|
-| CYP1A2 | 0.433 | 0.592 | 0.667 | 0.774 |
-| CYP2C9 | 0.327 | 0.443 | 0.667 | 0.834 |
-| CYP2D6 | 0.442 | 0.654 | 0.487 | 0.788 |
-| CYP3A4 | 0.349 | 0.469 | 0.813 | 0.910 |
-| **macro average** | **0.388** | **0.540** | **0.658** | **0.827** |
+<table>
+<thead>
+<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="2">Ranking</th></tr>
+<tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th></tr>
+</thead>
+<tbody>
+<tr><td>CYP1A2</td><td align="right">0.433</td><td align="right">0.592</td><td align="right">0.667</td><td align="right">0.774</td><td align="right">3</td><td align="right">3</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">6</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.442</td><td align="right">0.654</td><td align="right">0.487</td><td align="right">0.788</td><td align="right">33</td><td align="right">33</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">11</td><td align="right">11</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.388</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.827</strong></td><td align="right"><strong>10</strong></td><td align="right"><strong>10</strong></td></tr>
+</tbody>
+</table>
+
+<sub>Ranking is position on the public leaderboard, out of ~146 entries. Metrics are out-of-fold.</sub>
 
 **Time-dependent inhibition** (binary)
 
-| endpoint | MCC | AUC |
-|---|---|---|
-| CYP2D6 (TDI) | 0.228 | 0.645 |
-| CYP3A4 (TDI) | 0.517 | 0.845 |
-| **macro average** | **0.372** | **0.745** |
+<table>
+<thead>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="2">Ranking</th></tr>
+<tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th></tr>
+</thead>
+<tbody>
+<tr><td>CYP2D6</td><td align="right">0.228</td><td align="right">0.645</td><td align="right">13</td><td align="right">14</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.517</td><td align="right">0.845</td><td align="right">3</td><td align="right">27</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.372</strong></td><td align="right"><strong>0.745</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>13</strong></td></tr>
+</tbody>
+</table>
+
+<sub>Ranking is position on the public leaderboard, out of ~81 entries. Metrics are out-of-fold.</sub>
 
 ## Leaderboard history
 
@@ -60,22 +76,6 @@ other entry on the board.
 ### What changed in the latest submission
 
 ![submission delta](submission_delta.png)
-
-**Regression**
-
-| endpoint | first | best | latest | entries |
-|---|---|---|---|---|
-| CYP1A2 | 123 | **3** | 3 | ~146 |
-| CYP2C9 | 110 | **6** | 6 | ~146 |
-| CYP2D6 | 115 | **33** | 33 | ~146 |
-| CYP3A4 | 81 | **11** | 11 | ~146 |
-
-**Time-dependent inhibition**
-
-| endpoint | first | best | latest | entries |
-|---|---|---|---|---|
-| CYP2D6 (TDI) | 65 | **13** | 14 | ~81 |
-| CYP3A4 (TDI) | 49 | **3** | 27 | ~81 |
 
 ## Chemical neighbourhood of the held-out set
 
@@ -102,53 +102,57 @@ region of chemical space looks like, before it ever sees a label from it — and
 the downstream heads are built on is fitted on that wider neighbourhood rather than only where
 labels happen to exist.
 
-## Structural alerts, and letting the held-out set veto them
+## Structural alerts, vetoed by the held-out set
 
 Auxiliary compounds are screened with [rd_filters](https://github.com/PatWalters/rd_filters) —
-roughly 1,150 individually named alerts drawn from eight public rule sets (PAINS, BMS, Dundee,
-Glaxo, Inpharmatica, LINT, MLSMR, SureChEMBL). The selection is **subtractive**, in that order:
+~1,150 named alerts across eight public rule sets. Selection is subtractive: every alert is on by
+default, **any alert that fires on even one held-out compound is dropped** (75 of ~1,150), then a
+frequency cut removes the rest of the long tail.
 
-1. **Every alert is on by default.** An alert encodes a real liability; the burden of proof is on
-   switching one *off*.
-2. **The held-out set vetoes.** Any alert that fires on even one held-out compound is dropped —
-   permanently, no appeal. 75 of ~1,150 are removed this way.
-3. **A frequency cut** over what survives, so a rule seen once or twice is not acted on.
-
-Step 2 is the one that earns its place. We are scored on those molecules, so an alert condemning
-them is describing chemistry the corpus must **contain**, not chemistry to strip out. Because the
-veto is absolute, no surviving alert can fire on a held-out compound *by construction* — which
-means the neighbour screen can never reject a candidate for carrying chemistry the held-out set
-itself has. That property is free once the ordering is right, and unavailable at any price if the
-filter is chosen first and checked afterwards.
-
-The same screen is applied identically to the training pool and to the retrieved neighbours, so
-the two populations are filtered on one standard rather than drifting apart.
+The veto is the part that matters. We are scored on those molecules, so an alert condemning them
+describes chemistry the corpus must *contain*. Because it is absolute, no surviving alert can
+fire on a held-out compound by construction — the neighbour screen cannot reject a candidate for
+chemistry the held-out set itself has. Training pool and retrieved neighbours go through the same
+screen, so the two populations never drift apart.
 
 ## Keeping any one learner from dominating
 
-Both constraints below were added after measuring a failure, not chosen up front.
+The ensemble mixes fine-tuned molecular encoders with **tabular foundation models fitted over
+their frozen embeddings**. Those tabular legs are the ones that need holding back: they are cheap
+to add, they fit held-out folds extremely well, and several of them read from the *same*
+embeddings, so they arrive pre-correlated and can crowd out the encoders that produced their
+input. Four controls, each added after measuring a failure rather than chosen up front.
 
-**Non-negative stacking.** The base learners are heavily correlated — pairwise residual
-correlations of roughly 0.55 to 0.88, because the shared residual largely tracks *which
-compounds are hard* rather than which model is used. Given that, unconstrained ridge and
-elastic-net combiners returned large cancelling coefficients: one learner near +1.9 against
-another at −0.6, and on one endpoint the best standalone model was pushed **negative** — used as
-a correction term rather than as a predictor. That fits held-out folds well and transfers badly.
-One revision improved cross-validated error on all four endpoints while real held-out error got
-*worse* on three. The stacker is now restricted to non-negative combiners, which forbids that
-cancellation structurally rather than hoping a penalty discourages it.
+**Non-negative stacking.** Residual correlations between members run ~0.55–0.88 — the shared
+residual mostly tracks *which compounds are hard*, not which model is used. Given that,
+unconstrained ridge and elastic-net combiners returned large cancelling coefficients: one member
+near +1.9 against another at −0.6, and on one endpoint the best standalone model pushed
+**negative**, used as a correction term rather than a predictor. That fits held-out folds and
+transfers badly — one revision improved cross-validated error on all four endpoints while real
+held-out error got *worse* on three. The stacker is now restricted to non-negative combiners,
+which forbids the cancellation structurally instead of penalising it.
 
-**Down-weighted calculated features.** A head computed from structure alone carries a label on
-every row, so left at full weight it supplies the large majority of the pretraining gradient and
-the trunk spends its capacity reproducing a deterministic function it can already derive. Those
-heads are explicitly down-weighted relative to measured assay signal, as a per-task weight rather
-than a per-row one — a constant per-row weight cancels out of a weighted mean and changes
-nothing.
+**A feature budget on the tabular legs.** Each embedding source is PCA-capped before it reaches a
+tabular model. With only one to two thousand labelled rows per endpoint, an uncapped
+concatenation of several thousand embedding dimensions lets those models memorise the fold rather
+than learn from it.
 
-**Pruning by correlation, not by count.** More members is not reliably better. Dropping several
-highly-correlated learners improved every endpoint at once; later, dropping
-*representation-diverse* ones cost nearly as much as it had gained. The axis that matters is how
-much independent signal a member adds, not how many members there are.
+**Per-source legs, not one opaque column.** Every embedding source is fitted on its own *and* in
+the combined block, so the stacker can weigh one backbone's contribution against another's
+directly instead of seeing a single blended tabular prediction it must take or leave whole.
+
+**Pruning by correlation, not by count.** More members is not reliably better. Dropping a group of
+highly-correlated tabular legs improved every endpoint at once; later, dropping
+*representation-diverse* members cost most of that back. What matters is how much independent
+signal a member adds — on the classification track the direct encoder heads individually
+outranked every tabular embedding leg, and including all of them produced the worst result on
+record for one endpoint.
+
+**Down-weighted calculated features.** A property computed from structure alone carries a label on
+every row, so at full weight it supplies the large majority of the pretraining gradient and the
+trunk spends its capacity reproducing a function it can already derive. Those heads are
+down-weighted as a per-task weight — a constant per-row weight cancels out of a weighted mean and
+changes nothing.
 
 ## What moved the needle
 
