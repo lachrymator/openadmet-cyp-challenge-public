@@ -24,7 +24,7 @@ A representation-diverse ensemble, stacked per endpoint.
 
 Every reported number is out-of-fold. Nothing is scored on data the base learners saw.
 
-## Blind Challenge - Current Submission LeaderboardStanding
+## Blind Challenge Competition - Current Leaderboard Standing
 
 **Regression** (pIC50)
 
