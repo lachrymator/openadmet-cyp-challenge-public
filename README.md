@@ -30,15 +30,15 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 146 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 155 entries</th></tr>
 <tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP1A2</td><td align="right">0.433</td><td align="right">0.592</td><td align="right">0.667</td><td align="right">0.774</td><td align="right">3</td><td align="right">3</td><td align="right">top 2%</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">6</td><td align="right">top 4%</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.442</td><td align="right">0.654</td><td align="right">0.487</td><td align="right">0.788</td><td align="right">33</td><td align="right">33</td><td align="right">top 23%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">11</td><td align="right">11</td><td align="right">top 8%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.388</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.827</strong></td><td align="right"><strong>10</strong></td><td align="right"><strong>10</strong></td><td align="right"><strong>top 7%</strong></td></tr>
+<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">5</td><td align="right">top 3%</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">8</td><td align="right">top 5%</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">39</td><td align="right">top 25%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">16</td><td align="right">17</td><td align="right">top 11%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>16</strong></td><td align="right"><strong>top 10%</strong></td></tr>
 </tbody>
 </table>
 
@@ -46,13 +46,13 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 81 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 85 entries</th></tr>
 <tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP2D6</td><td align="right">0.228</td><td align="right">0.645</td><td align="right">13</td><td align="right">14</td><td align="right">top 17%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.517</td><td align="right">0.845</td><td align="right">3</td><td align="right">27</td><td align="right">top 33%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.372</strong></td><td align="right"><strong>0.745</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>top 16%</strong></td></tr>
+<tr><td>CYP2D6</td><td align="right">0.195</td><td align="right">0.622</td><td align="right">13</td><td align="right">14</td><td align="right">top 16%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.496</td><td align="right">0.835</td><td align="right">3</td><td align="right">5</td><td align="right">top 6%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.346</strong></td><td align="right"><strong>&ndash;</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 7%</strong></td></tr>
 </tbody>
 </table>
 
