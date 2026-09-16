@@ -81,7 +81,7 @@ structures** were retrieved from a large public catalogue — filtered at retrie
 held-out set's own physicochemical envelope and screened for structural liabilities, then kept
 only above a similarity floor chosen so that every admitted compound is closer to the scored
 molecules than the training set's own average nearest neighbour. These neighbors enter the training pool
-with calculated physical properties alone.
+with only their calculated physical properties and no assay endpoints.
 
 ## Structural alerts, vetoed by the blind held-out set
 
