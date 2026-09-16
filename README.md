@@ -105,12 +105,6 @@ Auxiliary compounds are screened with [rd_filters](https://github.com/PatWalters
 default, **any alert that fires on even one held-out compound is dropped** (75 of ~1,150), then a
 frequency cut removes the rest of the long tail.
 
-The veto is the part that matters. We are scored on those molecules, so an alert condemning them
-describes chemistry the corpus must *contain*. Because it is absolute, no surviving alert can
-fire on a held-out compound by construction — the neighbour screen cannot reject a candidate for
-chemistry the held-out set itself has. Training pool and retrieved neighbours go through the same
-screen, so the two populations never drift apart.
-
 ## Keeping any one learner from dominating
 
 The ensemble mixes fine-tuned molecular encoders with **tabular foundation models fitted over
