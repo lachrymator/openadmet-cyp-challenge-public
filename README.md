@@ -102,7 +102,7 @@ labels happen to exist.
 
 Auxiliary compounds are screened with [rd_filters](https://github.com/PatWalters/rd_filters) —
 ~1,150 named alerts across eight public rule sets. Selection is subtractive: every alert is on by
-default, **any alert that fires on even one held-out compound is dropped** (75 of ~1,150), then a
+default, **any alert that fires on even one held-out compound is dropped** (~75 of 1249), then a
 frequency cut removes the rest of the long tail.
 
 ## Keeping any one learner from dominating
