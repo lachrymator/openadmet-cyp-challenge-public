@@ -98,7 +98,7 @@ region of chemical space looks like, before it ever sees a label from it — and
 the downstream heads are built on is fitted on that wider neighbourhood rather than only where
 labels happen to exist.
 
-## Structural alerts, vetoed by the held-out set
+## Structural alerts, vetoed by the blind held-out set
 
 Auxiliary compounds are screened with [rd_filters](https://github.com/PatWalters/rd_filters) —
 ~1,150 named alerts across eight public rule sets. Selection is subtractive: every alert is on by
