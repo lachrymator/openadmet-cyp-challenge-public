@@ -80,23 +80,8 @@ data does not densely cover it. To close that gap, **over 50,000 near-neighbours
 structures** were retrieved from a large public catalogue — filtered at retrieval time to the
 held-out set's own physicochemical envelope and screened for structural liabilities, then kept
 only above a similarity floor chosen so that every admitted compound is closer to the scored
-molecules than the training set's own average nearest neighbour.
-
-They carry **no assay labels at all** — nothing was measured on them, and nothing is invented.
-What they do carry is a *calculated physical property*, computed for every compound in the
-project by one model so the value means the same thing on every row.
-
-That single head is what lets them into training. Each backbone is pretrained multi-task with the
-loss masked per head, so a row contributes through whichever heads it actually has: a measured
-compound trains the assay heads, a neighbour trains only the physicochemical one. Without that
-head a neighbour has no label in any task and is dropped before the first gradient step — with
-it, the same rows warm-start the shared trunk on the chemistry surrounding the held-out
-compounds.
-
-So the neighbours do not teach the model about potency. They teach the *encoder* what this
-region of chemical space looks like, before it ever sees a label from it — and the representation
-the downstream heads are built on is fitted on that wider neighbourhood rather than only where
-labels happen to exist.
+molecules than the training set's own average nearest neighbour. These neighbors enter the training pool
+with calculated physical properties alone.
 
 ## Structural alerts, vetoed by the blind held-out set
 
