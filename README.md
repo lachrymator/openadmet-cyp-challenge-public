@@ -30,15 +30,15 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 155 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 238 entries</th></tr>
 <tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">5</td><td align="right">top 3%</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">8</td><td align="right">top 5%</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">39</td><td align="right">top 25%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">16</td><td align="right">17</td><td align="right">top 11%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>16</strong></td><td align="right"><strong>top 10%</strong></td></tr>
+<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">7</td><td align="right">top 3%</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">14</td><td align="right">top 6%</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">48</td><td align="right">top 20%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">14</td><td align="right">14</td><td align="right">top 6%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>19</strong></td><td align="right"><strong>top 8%</strong></td></tr>
 </tbody>
 </table>
 
@@ -46,13 +46,13 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 85 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 125 entries</th></tr>
 <tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP2D6</td><td align="right">0.195</td><td align="right">0.622</td><td align="right">13</td><td align="right">14</td><td align="right">top 16%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.496</td><td align="right">0.835</td><td align="right">3</td><td align="right">5</td><td align="right">top 6%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.346</strong></td><td align="right"><strong>&ndash;</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 7%</strong></td></tr>
+<tr><td>CYP2D6</td><td align="right">0.268</td><td align="right">0.711</td><td align="right">13</td><td align="right">25</td><td align="right">top 20%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.437</td><td align="right">0.805</td><td align="right">3</td><td align="right">15</td><td align="right">top 12%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.353</strong></td><td align="right"><strong>0.758</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>19</strong></td><td align="right"><strong>top 15%</strong></td></tr>
 </tbody>
 </table>
 
@@ -76,12 +76,19 @@ other entry on the board.
 ## Chemical neighbourhood of the held-out set
 
 The held-out compounds occupy a particular corner of chemical space, and the labelled training
-data does not densely cover it. To close that gap, **over 50,000 near-neighbours of the held-out
+data does not densely cover it. To close that gap, **88,683 near-neighbours of the held-out
 structures** were retrieved from a large public catalogue — filtered at retrieval time to the
 held-out set's own physicochemical envelope and screened for structural liabilities, then kept
 only above a similarity floor chosen so that every admitted compound is closer to the scored
-molecules than the training set's own average nearest neighbour. These neighbors enter the training pool
-with only their calculated physical properties and no assay endpoints.
+molecules than the training set's own average nearest neighbour. The **4,999 closest** are
+admitted to the training pool, entering with only their calculated physical properties and no
+assay endpoints.
+
+![chemical space](chemical_space_tsne.png)
+
+*Chemical space of the corpus, t-SNE of AtomPair fingerprints, coloured by data tier. The
+held-out compounds are black and the admitted neighbours are their own tier, so how closely the
+retrieved chemistry tracks the scored compounds can be read off the map directly.*
 
 ## Structural alerts, vetoed by the blind held-out set
 
@@ -128,6 +135,30 @@ every row, so at full weight it supplies the large majority of the pretraining g
 trunk spends its capacity reproducing a function it can already derive. Those heads are
 down-weighted as a per-task weight — a constant per-row weight cancels out of a weighted mean and
 changes nothing.
+
+## Tabular foundation models
+
+The frozen-embedding learners are fitted with **Mitra**, AutoGluon's tabular foundation model,
+released under Apache 2.0. Two comparable models were evaluated on identical embeddings, TabICL
+and TabPFN. TabPFN was omitted.
+
+```python
+from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
+
+ag_hp = get_hyperparameter_config("zeroshot_2025_tabfm")
+for m in ["TABPFNV2"]:
+    ag_hp.pop(m, None)
+```
+
+Across seven matched embedding sources Mitra beat TabPFN on macro held-out R² in six, and the
+two models' residuals correlated 0.94–0.98 — they were making very nearly the same mistakes, so
+leaving one out cost almost no ensemble diversity.
+
+> Zhang, X., Maddix, D. C., Yin, J., Erickson, N., Ansari, A. F., Han, B., Zhang, S., Akoglu, L.,
+> Faloutsos, C., Mahoney, M. W., Hu, C., Rangwala, H., Karypis, G., & Wang, B. (2025).
+> *Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models.* NeurIPS 2025.
+> [arXiv:2510.21204](https://arxiv.org/abs/2510.21204) ·
+> [AutoGluon](https://github.com/autogluon/autogluon), Apache 2.0
 
 ## What moved the needle
 
