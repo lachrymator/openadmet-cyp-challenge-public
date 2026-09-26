@@ -4,8 +4,7 @@ Stacked ensemble for the [OpenADMET CYP Inhibition Blind Challenge](https://hugg
 — **pIC50 regression** across four cytochrome P450 isoforms, and **time-dependent inhibition
 (TDI)** classification for two of them.
 
-Best standing to date: **macro rank 10 of 146** on the regression track, with three of the four
-endpoints inside the top 11.
+On the organisers' **interim leaderboard** — scored on the *entire* held-out test set rather than the half the live board uses — this work placed **rank 28 of 219** on the regression track (Tier 6); and **rank 6 of 114** on the TDI track, inside **Tier 1** — the top tier, the 26 entries the organisers could not separate from first place.
 
 > Write-up only. This repository holds the method description and results; it is not the
 > training code.
@@ -28,37 +27,19 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 **Regression** (pIC50)
 
-<table>
-<thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 230 entries</th></tr>
-<tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th></tr>
-</thead>
-<tbody>
-<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">6</td><td align="right">top 3%</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">11</td><td align="right">top 5%</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">48</td><td align="right">top 21%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">13</td><td align="right">13</td><td align="right">top 6%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>19</strong></td><td align="right"><strong>top 8%</strong></td></tr>
-</tbody>
-</table>
+{_table("Regression", ["MAE", "RMSE", "R2", "Spearman"], ["MAE", "RMSE", "R²", "Spearman ρ"])}
 
 **Time-dependent inhibition** (binary)
 
-<table>
-<thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="3">Ranking &mdash; of 107 entries</th></tr>
-<tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th><th>percentile</th></tr>
-</thead>
-<tbody>
-<tr><td>CYP2D6</td><td align="right">0.268</td><td align="right">0.711</td><td align="right">13</td><td align="right">20</td><td align="right">top 19%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.437</td><td align="right">0.805</td><td align="right">3</td><td align="right">10</td><td align="right">top 9%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.353</strong></td><td align="right"><strong>0.758</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>16</strong></td><td align="right"><strong>top 15%</strong></td></tr>
-</tbody>
-</table>
+{_table("Time-dependent inhibition", ["MCC", "AUC"], ["MCC", "AUC"])}
 
 ## Leaderboard history
 
 ![leaderboard history](leaderboard_history.png)
+
+*Coloured lines are the live leaderboard, which scores half the held-out set and moves with every
+submission. The dashed vertical rule marks the release of the interim leaderboard, scored on the
+whole set; each line continues to its own standing there, with the overall result in purple.*
 
 ### Where this sits against the field
 
