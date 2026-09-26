@@ -27,11 +27,35 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 **Regression** (pIC50)
 
-{_table("Regression", ["MAE", "RMSE", "R2", "Spearman"], ["MAE", "RMSE", "R²", "Spearman ρ"])}
+<table>
+<thead>
+<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="4">Ranking &mdash; live board, of 227 entries</th></tr>
+<tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 219</small></th></tr>
+</thead>
+<tbody>
+<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">7</td><td align="right">top 3%</td><td align="right">30</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">12</td><td align="right">top 5%</td><td align="right">20</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">42</td><td align="right">top 19%</td><td align="right">37</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">15</td><td align="right">16</td><td align="right">top 7%</td><td align="right">23</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>22</strong></td><td align="right"><strong>top 10%</strong></td><td align="right"><strong>28</strong></td></tr>
+</tbody>
+</table>
+<p><em>The live leaderboard scores half the held-out set; the <strong>interim</strong> column is the organisers' interim board of 219 entries, scored on all of it. The macro row there sits in <strong>Tier 6</strong> of their significance tiering.</em></p>
 
 **Time-dependent inhibition** (binary)
 
-{_table("Time-dependent inhibition", ["MCC", "AUC"], ["MCC", "AUC"])}
+<table>
+<thead>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="4">Ranking &mdash; live board, of 127 entries</th></tr>
+<tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 114</small></th></tr>
+</thead>
+<tbody>
+<tr><td>CYP2D6</td><td align="right">0.268</td><td align="right">0.711</td><td align="right">13</td><td align="right">30</td><td align="right">top 24%</td><td align="right">26</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.437</td><td align="right">0.805</td><td align="right">3</td><td align="right">15</td><td align="right">top 12%</td><td align="right">3</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.353</strong></td><td align="right"><strong>0.758</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>24</strong></td><td align="right"><strong>top 19%</strong></td><td align="right"><strong>6</strong></td></tr>
+</tbody>
+</table>
+<p><em>The live leaderboard scores half the held-out set; the <strong>interim</strong> column is the organisers' interim board of 114 entries, scored on all of it. The macro row there sits in <strong>Tier 1</strong>, the top tier &mdash; the 26 entries they could not separate from first place.</em></p>
 
 ## Leaderboard history
 
