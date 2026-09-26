@@ -29,15 +29,15 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="4">Metrics &mdash; held-out CV</th><th colspan="4">Ranking &mdash; live board, of 227 entries</th></tr>
-<tr><th>MAE</th><th>RMSE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 219</small></th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="3">Cross-validation &mdash; out-of-fold</th><th colspan="4">Blind set &mdash; interim board</th><th colspan="4">Ranking &mdash; live board, of 227 entries</th></tr>
+<tr><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>ST-RAE</th><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 219</small></th></tr>
 </thead>
 <tbody>
-<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.589</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">3</td><td align="right">7</td><td align="right">top 3%</td><td align="right">30</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.443</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">6</td><td align="right">12</td><td align="right">top 5%</td><td align="right">20</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.658</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">33</td><td align="right">42</td><td align="right">top 19%</td><td align="right">37</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.469</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">15</td><td align="right">16</td><td align="right">top 7%</td><td align="right">23</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.540</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>22</strong></td><td align="right"><strong>top 10%</strong></td><td align="right"><strong>28</strong></td></tr>
+<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">0.441</td><td align="right">0.656</td><td align="right">0.660</td><td align="right">0.826</td><td align="right">3</td><td align="right">7</td><td align="right">top 3%</td><td align="right">30</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">0.380</td><td align="right">0.480</td><td align="right">0.686</td><td align="right">0.851</td><td align="right">6</td><td align="right">12</td><td align="right">top 5%</td><td align="right">20</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.432</td><td align="right">0.481</td><td align="right">0.792</td><td align="right">0.653</td><td align="right">1.141</td><td align="right">0.290</td><td align="right">0.449</td><td align="right">33</td><td align="right">42</td><td align="right">top 19%</td><td align="right">37</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.349</td><td align="right">0.813</td><td align="right">0.910</td><td align="right">0.386</td><td align="right">0.475</td><td align="right">0.743</td><td align="right">0.863</td><td align="right">15</td><td align="right">16</td><td align="right">top 7%</td><td align="right">23</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.384</strong></td><td align="right"><strong>0.658</strong></td><td align="right"><strong>0.828</strong></td><td align="right"><strong>0.465</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>0.595</strong></td><td align="right"><strong>0.747</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>22</strong></td><td align="right"><strong>top 10%</strong></td><td align="right"><strong>28</strong></td></tr>
 </tbody>
 </table>
 <p><em>The live leaderboard scores half the held-out set; the <strong>interim</strong> column is the organisers' interim board of 219 entries, scored on all of it. The macro row there sits in <strong>Tier 6</strong> of their significance tiering.</em></p>
@@ -46,13 +46,13 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="2">Metrics &mdash; held-out CV</th><th colspan="4">Ranking &mdash; live board, of 127 entries</th></tr>
-<tr><th>MCC</th><th>AUC</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 114</small></th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Cross-validation &mdash; out-of-fold</th><th colspan="3">Blind set &mdash; interim board</th><th colspan="4">Ranking &mdash; live board, of 127 entries</th></tr>
+<tr><th>MCC</th><th>AUC</th><th>MCC</th><th>Accuracy</th><th>F1</th><th>best</th><th>latest</th><th>percentile</th><th>interim<br><small>of 114</small></th></tr>
 </thead>
 <tbody>
-<tr><td>CYP2D6</td><td align="right">0.268</td><td align="right">0.711</td><td align="right">13</td><td align="right">30</td><td align="right">top 24%</td><td align="right">26</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.437</td><td align="right">0.805</td><td align="right">3</td><td align="right">15</td><td align="right">top 12%</td><td align="right">3</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.353</strong></td><td align="right"><strong>0.758</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>24</strong></td><td align="right"><strong>top 19%</strong></td><td align="right"><strong>6</strong></td></tr>
+<tr><td>CYP2D6</td><td align="right">0.268</td><td align="right">0.711</td><td align="right">0.256</td><td align="right">0.918</td><td align="right">0.298</td><td align="right">13</td><td align="right">30</td><td align="right">top 24%</td><td align="right">26</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.437</td><td align="right">0.805</td><td align="right">0.504</td><td align="right">0.761</td><td align="right">0.671</td><td align="right">3</td><td align="right">15</td><td align="right">top 12%</td><td align="right">3</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.353</strong></td><td align="right"><strong>0.758</strong></td><td align="right"><strong>0.380</strong></td><td align="right"><strong>0.840</strong></td><td align="right"><strong>0.484</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>24</strong></td><td align="right"><strong>top 19%</strong></td><td align="right"><strong>6</strong></td></tr>
 </tbody>
 </table>
 <p><em>The live leaderboard scores half the held-out set; the <strong>interim</strong> column is the organisers' interim board of 114 entries, scored on all of it. The macro row there sits in <strong>Tier 1</strong>, the top tier &mdash; the 26 entries they could not separate from first place.</em></p>
@@ -64,6 +64,29 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 *Coloured lines are the live leaderboard, which scores half the held-out set and moves with every
 submission. The dashed vertical rule marks the release of the interim leaderboard, scored on the
 whole set; each line continues to its own standing there, with the overall result in purple.*
+
+### Did cross-validation predict the blind result?
+
+Held-out cross-validation is the only signal available while a challenge is running, so it is
+worth asking how much of it survived contact with the blind set. The two are **not** the same
+measurement. The cross-validated value is out-of-fold over roughly 1,200–2,200 *training*
+compounds under cluster-disjoint folds; the blind value is what that same submission scored on
+the 750 held-out compounds, which the organisers built by expanding the most potent training
+hits into close analogues. Different compounds, deliberately a different distribution — so a
+gap is expected, and its size and sign are the interesting part.
+
+Every submission is plotted, one point per endpoint, on each track's ranking statistic.
+Regression is shown as MAE rather than the board's own ST-RAE: that statistic is the
+organisers' and has no cross-validated counterpart here, so pairing it against anything of ours
+would put two different quantities on one axis.
+
+![cross-validation vs the blind set](cv_vs_blind.png)
+
+Reading the figure: on **regression**, 100% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MAE +0.208); on **TDI**, 81% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MCC -0.036).
+
+Correlations are quoted per endpoint on purpose. Pooling them measures the gap *between*
+endpoints rather than whether cross-validation tracked a submission's progress — pooled, MCC
+reads r = 0.90, while neither endpoint on its own exceeds 0.69.
 
 ### Where this sits against the field
 
