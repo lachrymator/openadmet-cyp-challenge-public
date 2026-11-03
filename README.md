@@ -30,17 +30,18 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 <table>
 <thead>
 <tr><th rowspan="2">Endpoint</th><th colspan="3">Cross-validation &mdash; out-of-fold</th><th colspan="4">Blind set &mdash; interim board</th><th colspan="3">Ranking &mdash; live board, of 282 entries</th><th colspan="2">Ranking &mdash; interim board, of 219 entries</th></tr>
-<tr><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>ST-RAE</th><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>rank</th><th>percentile</th></tr>
+<tr><th>MAE</th><th>R²</th><th>RAE</th><th>ST-RAE</th><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>rank</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP1A2</td><td align="right">0.582</td><td align="right">0.388</td><td align="right">0.626</td><td align="right">0.441</td><td align="right">0.656</td><td align="right">0.660</td><td align="right">0.826</td><td align="right">3</td><td align="right">17</td><td align="right">top 6%</td><td align="right">30</td><td align="right">top 14%</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.393</td><td align="right">0.536</td><td align="right">0.726</td><td align="right">0.380</td><td align="right">0.480</td><td align="right">0.686</td><td align="right">0.851</td><td align="right">6</td><td align="right">33</td><td align="right">top 12%</td><td align="right">20</td><td align="right">top 9%</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.899</td><td align="right">0.324</td><td align="right">nan</td><td align="right">0.653</td><td align="right">1.141</td><td align="right">0.290</td><td align="right">0.449</td><td align="right">33</td><td align="right">66</td><td align="right">top 23%</td><td align="right">37</td><td align="right">top 17%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.447</td><td align="right">0.695</td><td align="right">0.836</td><td align="right">0.386</td><td align="right">0.475</td><td align="right">0.743</td><td align="right">0.863</td><td align="right">14</td><td align="right">37</td><td align="right">top 13%</td><td align="right">23</td><td align="right">top 11%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.580</strong></td><td align="right"><strong>0.486</strong></td><td align="right"><strong>0.729</strong></td><td align="right"><strong>0.465</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>0.595</strong></td><td align="right"><strong>0.747</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>42</strong></td><td align="right"><strong>top 15%</strong></td><td align="right"><strong>28</strong></td><td align="right"><strong>top 13%</strong></td></tr>
+<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.671</td><td align="right">0.573</td><td align="right">0.441</td><td align="right">0.656</td><td align="right">0.660</td><td align="right">0.826</td><td align="right">3</td><td align="right">17</td><td align="right">top 6%</td><td align="right">30</td><td align="right">top 14%</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.667</td><td align="right">0.559</td><td align="right">0.380</td><td align="right">0.480</td><td align="right">0.686</td><td align="right">0.851</td><td align="right">6</td><td align="right">33</td><td align="right">top 12%</td><td align="right">20</td><td align="right">top 9%</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.712&dagger;</td><td align="right">0.585&dagger;</td><td align="right">0.589&dagger;</td><td align="right">0.653</td><td align="right">1.141</td><td align="right">0.290</td><td align="right">0.449</td><td align="right">33</td><td align="right">66</td><td align="right">top 23%</td><td align="right">37</td><td align="right">top 17%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.320&dagger;</td><td align="right">0.828&dagger;</td><td align="right">0.389&dagger;</td><td align="right">0.386</td><td align="right">0.475</td><td align="right">0.743</td><td align="right">0.863</td><td align="right">14</td><td align="right">37</td><td align="right">top 13%</td><td align="right">23</td><td align="right">top 11%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.447&dagger;</strong></td><td align="right"><strong>0.688&dagger;</strong></td><td align="right"><strong>0.528&dagger;</strong></td><td align="right"><strong>0.465</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>0.595</strong></td><td align="right"><strong>0.747</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>42</strong></td><td align="right"><strong>top 15%</strong></td><td align="right"><strong>28</strong></td><td align="right"><strong>top 13%</strong></td></tr>
 </tbody>
 </table>
 <p><em>The two ranking groups are different boards and their percentiles are not comparable: the live leaderboard scores half the held-out set, the <strong>interim</strong> board scores all of it. The macro row there sits in <strong>Tier 6</strong> of their significance tiering.</em></p>
+<p><em>&dagger; Cross-validation re-scored on a population matched to the blind set: each training compound is weighted by how common its potency is among the blind compounds, because the two potency distributions differ (most strongly for CYP2D6). Not comparable with the unmarked rows, which is also why cross-validation is reported as MAE, R&sup2; and RAE: rank correlation is not defined under that weighting. The macro row mixes both bases.</em></p>
 
 **Time-dependent inhibition** (binary)
 
@@ -52,7 +53,7 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 <tbody>
 <tr><td>CYP2D6</td><td align="right">0.195</td><td align="right">0.622</td><td align="right">0.256</td><td align="right">0.918</td><td align="right">0.298</td><td align="right">13</td><td align="right">26</td><td align="right">top 16%</td><td align="right">26</td><td align="right">top 23%</td></tr>
 <tr><td>CYP3A4</td><td align="right">0.552</td><td align="right">0.864</td><td align="right">0.504</td><td align="right">0.761</td><td align="right">0.671</td><td align="right">3</td><td align="right">15</td><td align="right">top 9%</td><td align="right">3</td><td align="right">top 3%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.373</strong></td><td align="right"><strong>&ndash;</strong></td><td align="right"><strong>0.380</strong></td><td align="right"><strong>0.840</strong></td><td align="right"><strong>0.484</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>23</strong></td><td align="right"><strong>top 14%</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 5%</strong></td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.373</strong></td><td align="right"><strong>0.743</strong></td><td align="right"><strong>0.380</strong></td><td align="right"><strong>0.840</strong></td><td align="right"><strong>0.484</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>23</strong></td><td align="right"><strong>top 14%</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 5%</strong></td></tr>
 </tbody>
 </table>
 <p><em>The two ranking groups are different boards and their percentiles are not comparable: the live leaderboard scores half the held-out set, the <strong>interim</strong> board scores all of it. The macro row there sits in <strong>Tier 1</strong>, the top tier &mdash; the 26 entries they could not separate from first place.</em></p>
@@ -82,11 +83,14 @@ would put two different quantities on one axis.
 
 ![cross-validation vs the blind set](cv_vs_blind.png)
 
-Reading the figure: on **regression**, 100% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MAE +0.208); on **TDI**, 77% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MCC -0.036).
+Reading the figure: on **regression**, 100% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MAE +0.207); on **TDI**, 77% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MCC -0.036).
 
 Correlations are quoted per endpoint on purpose. Pooling them measures the gap *between*
-endpoints rather than whether cross-validation tracked a submission's progress — pooled, MCC
-reads r = 0.90, while neither endpoint on its own exceeds 0.69.
+endpoints rather than whether cross-validation tracked a submission's progress: on **regression**, pooled MAE reads r = 0.57, against 0.27–0.85 within a single endpoint; on **TDI**, pooled MCC reads r = 0.89, against 0.31–0.73 within a single endpoint.
+
+Where a submission's cross-validation was re-weighted to the blind population (marked † in the
+tables above), that endpoint is left out of the figure — the number is not on the same scale as
+the others.
 
 ### Where this sits against the field
 
@@ -166,9 +170,11 @@ changes nothing.
 
 ## Tabular foundation models
 
-The frozen-embedding learners are fitted with **Mitra**, AutoGluon's tabular foundation model,
-released under Apache 2.0. Two comparable models were evaluated on identical embeddings, TabICL
-and TabPFN. TabPFN was omitted.
+The frozen-embedding learners are fitted with **Mitra**, a tabular foundation model released
+under Apache 2.0, in two generations that sit side by side in the stack: **Mitra v1**, run through
+AutoGluon's portfolio, and **Mitra v2**, run through its own fine-tuning package from local
+weights. Two comparable models were evaluated on identical embeddings, TabICL and TabPFN.
+TabPFN was omitted.
 
 ```python
 from autogluon.tabular.configs.hyperparameter_configs import get_hyperparameter_config
@@ -178,15 +184,31 @@ for m in ["TABPFNV2"]:
     ag_hp.pop(m, None)
 ```
 
-Across seven matched embedding sources Mitra beat TabPFN on macro held-out R² in six, and the
+Across seven matched embedding sources Mitra v1 beat TabPFN on macro held-out R² in six, and the
 two models' residuals correlated 0.94–0.98 — they were making very nearly the same mistakes, so
 leaving one out cost almost no ensemble diversity.
+
+Mitra v2 is a separate release rather than a newer checkpoint of the same model: a 2D-transformer
+backbone of 77 M parameters whose regressor predicts a distribution over 1,000 target bins, where
+v1's is a 12-layer, 72 M-parameter transformer with a scalar head. It is not reachable through
+AutoGluon's portfolio, so it is fitted separately and offline, and its outputs enter the stack as
+their own learners alongside v1's.
+
+**Mitra v1**
 
 > Zhang, X., Maddix, D. C., Yin, J., Erickson, N., Ansari, A. F., Han, B., Zhang, S., Akoglu, L.,
 > Faloutsos, C., Mahoney, M. W., Hu, C., Rangwala, H., Karypis, G., & Wang, B. (2025).
 > *Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models.* NeurIPS 2025.
 > [arXiv:2510.21204](https://arxiv.org/abs/2510.21204) ·
 > [AutoGluon](https://github.com/autogluon/autogluon), Apache 2.0
+
+**Mitra v2**
+
+> Tao, Y., Zhang, X., Liu, X., Han, B., Maddix, D., Fang, H., Han, Z., Gai, J., Liu, X.,
+> Bohlke-Schneider, M., Wang, Y., Friedland, G., Mah, K., Lee, C., & Kong, C. (2026).
+> *Mitra-v2 Technical Report.*
+> [arXiv:2609.04540](https://arxiv.org/abs/2609.04540) ·
+> [Hugging Face](https://huggingface.co/autogluon/mitra-finetune), Apache 2.0
 
 ## What moved the needle
 
