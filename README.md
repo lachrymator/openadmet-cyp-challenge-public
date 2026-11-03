@@ -29,15 +29,15 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="3">Cross-validation &mdash; out-of-fold</th><th colspan="4">Blind set &mdash; interim board</th><th colspan="3">Ranking &mdash; live board, of 230 entries</th><th colspan="2">Ranking &mdash; interim board, of 219 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="3">Cross-validation &mdash; out-of-fold</th><th colspan="4">Blind set &mdash; interim board</th><th colspan="3">Ranking &mdash; live board, of 282 entries</th><th colspan="2">Ranking &mdash; interim board, of 219 entries</th></tr>
 <tr><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>ST-RAE</th><th>MAE</th><th>R²</th><th>Spearman ρ</th><th>best</th><th>latest</th><th>percentile</th><th>rank</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP1A2</td><td align="right">0.429</td><td align="right">0.671</td><td align="right">0.777</td><td align="right">0.441</td><td align="right">0.656</td><td align="right">0.660</td><td align="right">0.826</td><td align="right">3</td><td align="right">30</td><td align="right">top 13%</td><td align="right">30</td><td align="right">top 14%</td></tr>
-<tr><td>CYP2C9</td><td align="right">0.327</td><td align="right">0.667</td><td align="right">0.834</td><td align="right">0.380</td><td align="right">0.480</td><td align="right">0.686</td><td align="right">0.851</td><td align="right">6</td><td align="right">31</td><td align="right">top 13%</td><td align="right">20</td><td align="right">top 9%</td></tr>
-<tr><td>CYP2D6</td><td align="right">0.712</td><td align="right">0.585</td><td align="right">nan</td><td align="right">0.653</td><td align="right">1.141</td><td align="right">0.290</td><td align="right">0.449</td><td align="right">33</td><td align="right">41</td><td align="right">top 18%</td><td align="right">37</td><td align="right">top 17%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.320</td><td align="right">0.828</td><td align="right">nan</td><td align="right">0.386</td><td align="right">0.475</td><td align="right">0.743</td><td align="right">0.863</td><td align="right">14</td><td align="right">14</td><td align="right">top 6%</td><td align="right">23</td><td align="right">top 11%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.447</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>nan</strong></td><td align="right"><strong>0.465</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>0.595</strong></td><td align="right"><strong>0.747</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>28</strong></td><td align="right"><strong>top 12%</strong></td><td align="right"><strong>28</strong></td><td align="right"><strong>top 13%</strong></td></tr>
+<tr><td>CYP1A2</td><td align="right">0.582</td><td align="right">0.388</td><td align="right">0.626</td><td align="right">0.441</td><td align="right">0.656</td><td align="right">0.660</td><td align="right">0.826</td><td align="right">3</td><td align="right">17</td><td align="right">top 6%</td><td align="right">30</td><td align="right">top 14%</td></tr>
+<tr><td>CYP2C9</td><td align="right">0.393</td><td align="right">0.536</td><td align="right">0.726</td><td align="right">0.380</td><td align="right">0.480</td><td align="right">0.686</td><td align="right">0.851</td><td align="right">6</td><td align="right">33</td><td align="right">top 12%</td><td align="right">20</td><td align="right">top 9%</td></tr>
+<tr><td>CYP2D6</td><td align="right">0.899</td><td align="right">0.324</td><td align="right">nan</td><td align="right">0.653</td><td align="right">1.141</td><td align="right">0.290</td><td align="right">0.449</td><td align="right">33</td><td align="right">66</td><td align="right">top 23%</td><td align="right">37</td><td align="right">top 17%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.447</td><td align="right">0.695</td><td align="right">0.836</td><td align="right">0.386</td><td align="right">0.475</td><td align="right">0.743</td><td align="right">0.863</td><td align="right">14</td><td align="right">37</td><td align="right">top 13%</td><td align="right">23</td><td align="right">top 11%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.580</strong></td><td align="right"><strong>0.486</strong></td><td align="right"><strong>0.729</strong></td><td align="right"><strong>0.465</strong></td><td align="right"><strong>0.688</strong></td><td align="right"><strong>0.595</strong></td><td align="right"><strong>0.747</strong></td><td align="right"><strong>13</strong></td><td align="right"><strong>42</strong></td><td align="right"><strong>top 15%</strong></td><td align="right"><strong>28</strong></td><td align="right"><strong>top 13%</strong></td></tr>
 </tbody>
 </table>
 <p><em>The two ranking groups are different boards and their percentiles are not comparable: the live leaderboard scores half the held-out set, the <strong>interim</strong> board scores all of it. The macro row there sits in <strong>Tier 6</strong> of their significance tiering.</em></p>
@@ -46,13 +46,13 @@ Every reported number is out-of-fold. Nothing is scored on data the base learner
 
 <table>
 <thead>
-<tr><th rowspan="2">Endpoint</th><th colspan="2">Cross-validation &mdash; out-of-fold</th><th colspan="3">Blind set &mdash; interim board</th><th colspan="3">Ranking &mdash; live board, of 129 entries</th><th colspan="2">Ranking &mdash; interim board, of 114 entries</th></tr>
+<tr><th rowspan="2">Endpoint</th><th colspan="2">Cross-validation &mdash; out-of-fold</th><th colspan="3">Blind set &mdash; interim board</th><th colspan="3">Ranking &mdash; live board, of 160 entries</th><th colspan="2">Ranking &mdash; interim board, of 114 entries</th></tr>
 <tr><th>MCC</th><th>AUC</th><th>MCC</th><th>Accuracy</th><th>F1</th><th>best</th><th>latest</th><th>percentile</th><th>rank</th><th>percentile</th></tr>
 </thead>
 <tbody>
-<tr><td>CYP2D6</td><td align="right">0.270</td><td align="right">0.719</td><td align="right">0.256</td><td align="right">0.918</td><td align="right">0.298</td><td align="right">13</td><td align="right">85</td><td align="right">top 66%</td><td align="right">26</td><td align="right">top 23%</td></tr>
-<tr><td>CYP3A4</td><td align="right">0.554</td><td align="right">0.864</td><td align="right">0.504</td><td align="right">0.761</td><td align="right">0.671</td><td align="right">3</td><td align="right">27</td><td align="right">top 21%</td><td align="right">3</td><td align="right">top 3%</td></tr>
-<tr><td><strong>macro average</strong></td><td align="right"><strong>0.412</strong></td><td align="right"><strong>0.792</strong></td><td align="right"><strong>0.380</strong></td><td align="right"><strong>0.840</strong></td><td align="right"><strong>0.484</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>61</strong></td><td align="right"><strong>top 47%</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 5%</strong></td></tr>
+<tr><td>CYP2D6</td><td align="right">0.195</td><td align="right">0.622</td><td align="right">0.256</td><td align="right">0.918</td><td align="right">0.298</td><td align="right">13</td><td align="right">26</td><td align="right">top 16%</td><td align="right">26</td><td align="right">top 23%</td></tr>
+<tr><td>CYP3A4</td><td align="right">0.552</td><td align="right">0.864</td><td align="right">0.504</td><td align="right">0.761</td><td align="right">0.671</td><td align="right">3</td><td align="right">15</td><td align="right">top 9%</td><td align="right">3</td><td align="right">top 3%</td></tr>
+<tr><td><strong>macro average</strong></td><td align="right"><strong>0.373</strong></td><td align="right"><strong>&ndash;</strong></td><td align="right"><strong>0.380</strong></td><td align="right"><strong>0.840</strong></td><td align="right"><strong>0.484</strong></td><td align="right"><strong>14</strong></td><td align="right"><strong>23</strong></td><td align="right"><strong>top 14%</strong></td><td align="right"><strong>6</strong></td><td align="right"><strong>top 5%</strong></td></tr>
 </tbody>
 </table>
 <p><em>The two ranking groups are different boards and their percentiles are not comparable: the live leaderboard scores half the held-out set, the <strong>interim</strong> board scores all of it. The macro row there sits in <strong>Tier 1</strong>, the top tier &mdash; the 26 entries they could not separate from first place.</em></p>
@@ -82,7 +82,7 @@ would put two different quantities on one axis.
 
 ![cross-validation vs the blind set](cv_vs_blind.png)
 
-Reading the figure: on **regression**, 100% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MAE +0.208); on **TDI**, 82% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MCC -0.042).
+Reading the figure: on **regression**, 100% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MAE +0.208); on **TDI**, 77% of submission-endpoint pairs came out worse on the blind set than in cross-validation (median MCC -0.036).
 
 Correlations are quoted per endpoint on purpose. Pooling them measures the gap *between*
 endpoints rather than whether cross-validation tracked a submission's progress — pooled, MCC
